@@ -40,7 +40,7 @@ tags: c++ 组态王 opc vs2012
 ### 添加Items
 ![](https://i.imgur.com/e8Qd9sS.jpg)
 
-###读取数据
+### 读取数据
 ![](https://i.imgur.com/r9AmH69.jpg)
 
 ### 写入数据
