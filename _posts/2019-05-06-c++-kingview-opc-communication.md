@@ -18,7 +18,7 @@ tags: c++ 组态王 opc vs2012
 ## 1、环境配置
 将opccomn_ps.dll,PCDAAuto.dll,OpcEnum.exe,opchda_ps.dll,opcproxy.dll这五项全部复制到“C：\Windows\System32”目录下，然后进行注册。
 
-![JPG](pictures/opc-communication-dll.jpg)
+![](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-dll.jpg)
 
 ## 2、核心程序
 
@@ -32,22 +32,22 @@ tags: c++ 组态王 opc vs2012
 
 ### 初始化COM库并连接OPC服务器
 
-![JPG](pictures/opc-communication-com.jpg)
-![JPG](pictures/opc-communication-opcserver.jpg)
+![JPG](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-com.jpg)
+![JPG](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-opcserver.jpg)
 
 ### 创建OPC组
 
-![JPG](pictures/opc-communication-group.jpg)
+![JPG](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-group.jpg)
 
 ### 添加Items
 
-![JPG](pictures/opc-communication-items.jpg)
+![JPG](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-items.jpg)
 
 ### 读取数据
-![JPG](pictures/opc-communication-read.jpg)
+![JPG](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-read.jpg)
 
 ### 写入数据
-![JPG](pictures/opc-communication-write.jpg)
+![JPG](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/opc-communication-write.jpg)
 
 
 
