@@ -17,7 +17,8 @@ tags: c++ 组态王 opc vs2012
 
 ## 1、环境配置
 将opccomn_ps.dll,PCDAAuto.dll,OpcEnum.exe,opchda_ps.dll,opcproxy.dll这五项全部复制到“C：\Windows\System32”目录下，然后进行注册。
-![](https://i.imgur.com/N4jjadQ.jpg)
+
+![](pictures\2019-05-06-c++-kingview-opc-communication/20190506151245.jpg)
 
 ## 2、核心程序
 
@@ -31,20 +32,22 @@ tags: c++ 组态王 opc vs2012
 
 ### 初始化COM库并连接OPC服务器
 
-![](https://i.imgur.com/4Z0CxUF.jpg)
-![](https://i.imgur.com/BS7Dh2g.jpg)
+![](pictures\2019-05-06-c++-kingview-opc-communication/com.jpg)
+![](pictures\2019-05-06-c++-kingview-opc-communication/opcserver.jpg)
 
 ### 创建OPC组
-![](https://i.imgur.com/uS1xtV8.jpg)
+
+![](pictures\2019-05-06-c++-kingview-opc-communication/group.jpg)
 
 ### 添加Items
-![](https://i.imgur.com/e8Qd9sS.jpg)
+
+![](pictures\2019-05-06-c++-kingview-opc-communication/items.jpg)
 
 ### 读取数据
-![](https://i.imgur.com/r9AmH69.jpg)
+![](pictures\2019-05-06-c++-kingview-opc-communication/read.jpg)
 
 ### 写入数据
-![](https://i.imgur.com/1vDaKB1.jpg)
+![](pictures\2019-05-06-c++-kingview-opc-communication/write.jpg)
 
 
 
