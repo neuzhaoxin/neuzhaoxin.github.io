@@ -9,7 +9,7 @@ tags: c++ 组态王 opc vs2012
 * content
 {:toc}
 
-主要介绍c++语言利用OPC标准库文件与组态王通讯的几个关键步骤，具体代码会在[我的github](https://github.com/neuzhaoxin)中贴出来。
+主要介绍c++语言利用OPC标准库文件与组态王通讯的几个关键步骤，具体代码会在[我的github](https://github.com/neuzhaoxin/c-plus-opc-communication)中贴出来。
 
 
 
@@ -29,21 +29,21 @@ tags: c++ 组态王 opc vs2012
 "Opccomn_i.c"，
 "Opccomn.h"
 
-###初始化COM库并连接OPC服务器
+### 初始化COM库并连接OPC服务器
 
 ![](https://i.imgur.com/4Z0CxUF.jpg)
 ![](https://i.imgur.com/BS7Dh2g.jpg)
 
-###创建OPC组
+### 创建OPC组
 ![](https://i.imgur.com/uS1xtV8.jpg)
 
-###添加Items
+### 添加Items
 ![](https://i.imgur.com/e8Qd9sS.jpg)
 
 ###读取数据
 ![](https://i.imgur.com/r9AmH69.jpg)
 
-###写入数据
+### 写入数据
 ![](https://i.imgur.com/1vDaKB1.jpg)
 
 
