@@ -30,7 +30,14 @@ description_footer: 赵鑫的个人专栏！
 # two ways to comment, only choose one, and use your own short name
 # 两种评论插件，选一个就好了，使用自己的 short_name
 duoshuo_shortname: #hygblog
-disqus_shortname: disqus_9FkQMMr9sz  
+disqus_shortname: disqus_9FkQMMr9sz 
+gitalk:
+    owner: neuzhaoxin
+    repo: neuzhaoxin.github.io
+    clientID: 87295a81d7bb4c28c46c
+    clientSecret: 21672ad41ae86f5f04cf03a1338f3be2c21b0d4c
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
