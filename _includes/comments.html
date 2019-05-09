@@ -61,9 +61,8 @@
     admin: ['{{site.gitalk.admin}}'],
     title: '{{ page.title }}',
     id: location.pathname, 
-    distractionFreeMode: true,
-    createIssueManually: true，
-
+    distractionFreeMode: '{{ site.gitalk.distractionFreeMode }}',
+    createIssueManually: '{{ site.gitalk.createIssueManually }}'  
     });
     gitalk.render('gitalk-container');
      </script>
