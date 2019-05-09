@@ -34,11 +34,12 @@ disqus_shortname: #disqus_9FkQMMr9sz
 
 gitalk:
     enable: true    #是否开启Gitalk评论
-    clientID: 87295a81d7bb4c28c46c                          #生成的clientID
-    clientSecret: 21672ad41ae86f5f04cf03a1338f3be2c21b0d4c    #生成的clientSecret
-    repo: neuzhaoxin.github.io    #仓库名称
-    owner: neuzhaoxin    #github用户名
-    admin: neuzhaoxin
+    clientID: '87295a81d7bb4c28c46c'                          #生成的clientID
+    clientSecret: '21672ad41ae86f5f04cf03a1338f3be2c21b0d4c'    #生成的clientSecret
+    repo: 'neuzhaoxin.github.io'    #仓库名称
+    owner: 'neuzhaoxin'    #github用户名
+    admin: 'neuzhaoxin'
+    distractionFreeMode: true
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
