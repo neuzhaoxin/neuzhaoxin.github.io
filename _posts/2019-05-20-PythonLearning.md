@@ -731,3 +731,49 @@ mode:
 #### 2）写入数据
 
 ![jpg](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/PythonLearning/写入数据.jpg)
+
+
+### 2.3 2019-5-26（实战）
+
+#### 1）模块导入
+```python
+
+#例1 导入整个datatime库
+import datatime  
+print(datatime.datatime.now())
+
+#例2 从datatime库中导入datatime类
+form datatime import datatime
+print(datatime.now())
+
+#例3 给datatime库起个别名
+import datatime as dt
+print(dt.datatime.now())
+```
+
+#### 2）append
+
+```python
+vec = []
+
+vec.append(1,2) #[1,2]
+
+vec.append([3]) #[1,2,[3]]
+
+```
+
+#### 3）numpy库
+
+```python
+import numpy as np
+
+np.zeros((2,2)) #[[0,0],[0,0]]
+
+net = np.dot(wh,h)+np.dot(wx,x)+b # wh * h + wx * x + b
+
+```
+[更多可以看这里](https://www.cnblogs.com/cwp-bg/p/9493583.html)
+
+
+
+
