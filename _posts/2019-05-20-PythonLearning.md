@@ -775,5 +775,216 @@ net = np.dot(wh,h)+np.dot(wx,x)+b # wh * h + wx * x + b
 [更多可以看这里](https://www.cnblogs.com/cwp-bg/p/9493583.html)
 
 
+### 2.5 2019-9-12PyTorch入门
+
+————————————————
+版权声明：本文为CSDN博主「Liam Coder」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/out_of_memory_error/article/details/81258809
+
+#### 1）基本数据类型
+
+1、Tensor（张量）
+
+Tensor（张量），它表示的其实就是一个多维矩阵，并有矩阵相关的运算操作。在使用上和numpy是对应的，它和numpy唯一的不同就是，pytorch可以在GPU上运行，而numpy不可以。所以，我们也可以使用Tensor来代替numpy的使用。当然，二者也可以相互转换。
+
+Tensor的基本数据类型有五种：
+
+32位浮点型：torch.FloatTensor。pyorch.Tensor()默认的就是这种类型。
+64位整型：torch.LongTensor。
+32位整型：torch.IntTensor。
+16位整型：torch.ShortTensor。
+64位浮点型：torch.DoubleTensor。
+
+张量的定义方法：
+
+```python
+import torch
+# 导包
+ 
+a = torch.Tensor([[1, 2], [3, 4], [5, 6]])
+print(a)
+
+```
+
+不过在项目之中，更多的做法是以特殊值或者随机值初始化一个矩阵，就像下面这样：
+
+```python
+import torch
+ 
+# 定义一个3行2列的全为0的矩阵
+b = torch.zeros((3, 2))
+ 
+# 定义一个3行2列的随机值矩阵
+c = torch.randn((3, 2))
+ 
+# 定义一个3行2列全为1的矩阵
+d = torch.ones((3, 2))
+ 
+print(b)
+print(c)
+print(d)
+
+```
+
+Tensor和numpy.ndarray之间还可以相互转换，其方式如下：
+
+Numpy转化为Tensor：torch.from_numpy(numpy矩阵)
+Tensor转化为numpy：Tensor矩阵.numpy()
+
+范例：
+
+```python
+import torch
+import numpy as np
+ 
+# 定义一个3行2列的全为0的矩阵
+b = torch.randn((3, 2))
+ 
+# tensor转化为numpy
+numpy_b = b.numpy()
+print(numpy_b)
+ 
+# numpy转化为tensor
+numpy_e = np.array([[1, 2], [3, 4], [5, 6]])
+torch_e = torch.from_numpy(numpy_e)
+ 
+print(numpy_e)
+print(torch_e)
+
+```
+
+之前说过，numpy与Tensor最大的区别就是在对GPU的支持上。Tensor只需要调用cuda()函数就可以将其转化为能在GPU上运行的类型。
+
+我们可以通过torch.cuda.is_available()函数来判断当前的环境是否支持GPU，如果支持，则返回True。所以，为保险起见，在项目代码中一般采取“先判断，后使用”的策略来保证代码的正常运行，其基本结构如下：
+
+```python
+import torch
+ 
+# 定义一个3行2列的全为0的矩阵
+tmp = torch.randn((3, 2))
+ 
+# 如果支持GPU，则定义为GPU类型
+if torch.cuda.is_available():
+    inputs = tmp.cuda()
+# 否则，定义为一般的Tensor类型
+else:
+    inputs = tmp
+
+```
+
+2、Variable(变量)
+
+Pytorch里面的Variable类型数据功能更加强大，相当于是在Tensor外层套了一个壳子，这个壳子赋予了前向传播，反向传播，自动求导等功能，在计算图的构建中起的很重要的作用。Variable的结构图如下：
+
+![jpg](https://github.com/neuzhaoxin/neuzhaoxin.github.io/raw/master/_posts/pictures/PythonLearning/pytorch_variable.jpg)
+
+其中最重要的两个属性是：data和grad。Data表示该变量保存的实际数据，通过该属性可以访问到它所保存的原始张量类型，而关于该 variable（变量）的梯度会被累计到.grad 上去。
+
+在使用Variable的时候需要从torch.autograd中导入。下面通过一个例子来看一下它自动求导的过程：
+
+```python
+import torch
+from torch.autograd import Variable
+ 
+# 定义三个Variable变量
+x = Variable(torch.Tensor([1, 2, 3]), requires_grad=True)
+w = Variable(torch.Tensor([2, 3, 4]), requires_grad=True)
+b = Variable(torch.Tensor([3, 4, 5]), requires_grad=True)
+ 
+# 构建计算图，公式为：y = w * x^2 + b
+y = w * x * x + b
+ 
+# 自动求导，计算梯度
+y.backward(torch.Tensor([1, 1, 1]))
+ 
+print(x.grad)
+print(w.grad)
+print(b.grad)
+
+#上述代码的计算图为y = w * x^2 + b。
+#对x, w, b分别求偏导为：
+#x.grad = 2wx，
+#w.grad=x^2，
+#b.grad=1。
+#代值检验可得计算结果是正确的。
+
+```
+
+#### 2）一维线性回归模型
+
+1、
+
+#### 3）多项式回归模型
+
+#### 4）逻辑回归模型进行分类
+
+#### 5）全连接神经网络
+
+全连接神经网络是一种最基本的神经网络结构，英文为Full Connection，所以一般简称FC。
+
+FC的准则很简单：神经网络中除输入层之外的每个节点都和上一层的所有节点有连接。
+
+神经网络的第一层为输入层，最后一层为输出层，中间所有的层都为隐藏层。在计算神经网络层数的时候，一般不把输入层算做在内。
+
+```python
+from torch import nn
+
+class simpleNet(nn.Module):
+    """
+    定义了一个简单的三层全连接神经网络，每一层都是线性的
+    """
+    def __init__(self, in_dim, n_hidden_1, n_hidden_2, out_dim):
+        super(simpleNet, self).__init__()
+        self.layer1 = nn.Linear(in_dim, n_hidden_1)
+        self.layer2 = nn.Linear(n_hidden_1, n_hidden_2)
+        self.layer3 = nn.Linear(n_hidden_2, out_dim)
+ 
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        return x
+
+class Activation_Net(nn.Module):
+    """
+    在上面的simpleNet的基础上，在每层的输出部分添加了激活函数
+    """
+    def __init__(self, in_dim, n_hidden_1, n_hidden_2, out_dim):
+        super(Activation_Net, self).__init__()
+        self.layer1 = nn.Sequential(nn.Linear(in_dim, n_hidden_1), nn.ReLU(True))
+        self.layer2 = nn.Sequential(nn.Linear(n_hidden_1, n_hidden_2), nn.ReLU(True))
+        self.layer3 = nn.Sequential(nn.Linear(n_hidden_2, out_dim))
+        """
+        这里的Sequential()函数的功能是将网络的层组合到一起。
+        """
+ 
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        return x
 
 
+class Batch_Net(nn.Module):
+    """
+    在上面的Activation_Net的基础上，增加了一个加快收敛速度的方法——批标准化
+    """
+    def __init__(self, in_dim, n_hidden_1, n_hidden_2, out_dim):
+        super(Batch_Net, self).__init__()
+        self.layer1 = nn.Sequential(nn.Linear(in_dim, n_hidden_1), nn.BatchNorm1d(n_hidden_1), nn.ReLU(True))
+        self.layer2 = nn.Sequential(nn.Linear(n_hidden_1, n_hidden_2), nn.BatchNorm1d(n_hidden_2), nn.ReLU(True))
+        self.layer3 = nn.Sequential(nn.Linear(n_hidden_2, out_dim))
+ 
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        return x
+
+```
+
+
+
+#### 6）卷积神经网络
+
+#### 7）循环神经网络
