@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Independent Component Analysis(ICA)"
+title:  "MATLAB deeplearning toolbox"
 date:   2019-09-11 9:39:42
 categories: 工具箱
 tags: MATLAB DeepLearning
